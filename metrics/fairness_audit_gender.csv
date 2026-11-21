@@ -1,0 +1,3 @@
+Gender,Applicants,Observed default %,Mean predicted prob %,Flagged high-risk %,Recall %,Precision %
+Female,1310,21.527,21.029,30.534,59.574,42.0
+Male,2690,19.554,20.336,28.513,57.414,39.374

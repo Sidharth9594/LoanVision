@@ -1,0 +1,2 @@
+applicant_id,age,education,employment_status,years_employed,annual_income,dependents,home_ownership,property_area,loan_purpose,loan_amount,loan_term_months,interest_rate,credit_score,credit_history_years,previous_loans,late_payments_24m,existing_emi_monthly,savings_balance,co_applicant,collateral_provided,prediction_date,default_probability,risk_category,model_prediction,application_status
+LV-4D29A3AE,37,Graduate,Business Owner,6.2,630000,1,Family,Rural,Business,700000,60,10.07,716,6.1,2,0,1200,221000,0,0,2026-11-21 11:42:12,0.17304518294087587,Medium,0,Pending

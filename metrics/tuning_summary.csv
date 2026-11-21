@@ -1,0 +1,5 @@
+Model,CV ROC-AUC,Best settings,Time (s)
+Logistic Regression,0.7615,{'C': 0.03},2.321
+Decision Tree,0.7144,"{'min_samples_leaf': 100, 'max_depth': 8}",3.4703
+Random Forest,0.7498,"{'n_estimators': 250, 'min_samples_leaf': 20, 'max_features': 'sqrt', 'max_depth': 12}",145.234
+Gradient Boosting,0.7521,"{'max_leaf_nodes': 15, 'max_iter': 200, 'max_depth': 6, 'learning_rate': 0.03, 'l2_regularization': 0.0}",23.3787

@@ -1,0 +1,4 @@
+band,Applicants,Defaulted,Observed_default_rate,Mean_predicted_prob,Share_of_applicants_%
+Low Risk,1263,78,6.176,5.986,31.575
+Medium Risk,1570,260,16.561,16.5,39.25
+High Risk,1167,470,40.274,41.804,29.175

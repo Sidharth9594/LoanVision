@@ -1,0 +1,201 @@
+{
+  "project": "Bank Loan Default Prediction Using Business Intelligence and Machine Learning",
+  "data_origin": "regenerated in this notebook (seed 42) and saved as dataset.csv",
+  "random_seed": 42,
+  "library_versions": {
+    "python": "3.13.18",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.6.1"
+  },
+  "rows_after_duplicate_removal": 20000,
+  "train_rows": 16000,
+  "test_rows": 4000,
+  "selected_model": "Logistic Regression",
+  "cross_validated_roc_auc": 0.7615009366224195,
+  "tuning_enabled": true,
+  "thresholds": {
+    "low_medium": 0.09951317733441693,
+    "medium_high": 0.2533386081202533
+  },
+  "band_rule": "High: p >= t_high (F1-optimal on training out-of-fold predictions). Low: p < t_low (below it lies at most 10% of defaulters in training out-of-fold data). Medium: otherwise. A documented design choice, not a statistically validated standard.",
+  "test_metrics_at_t_high": {
+    "Threshold": 0.2533386081202533,
+    "Accuracy": 0.74125,
+    "Precision": 0.4027420736932305,
+    "Recall": 0.5816831683168316,
+    "F1": 0.4759493670886076,
+    "ROC-AUC": 0.7586280832030572,
+    "PR-AUC": 0.4698089930484651,
+    "TP": 470,
+    "FP": 697,
+    "FN": 338,
+    "TN": 2495
+  },
+  "raw_features": [
+    "age",
+    "education",
+    "employment_status",
+    "years_employed",
+    "annual_income",
+    "dependents",
+    "home_ownership",
+    "property_area",
+    "loan_purpose",
+    "loan_amount",
+    "loan_term_months",
+    "interest_rate",
+    "credit_score",
+    "credit_history_years",
+    "previous_loans",
+    "late_payments_24m",
+    "existing_emi_monthly",
+    "savings_balance",
+    "co_applicant",
+    "collateral_provided"
+  ],
+  "model_features": [
+    "annual_income",
+    "loan_amount",
+    "savings_balance",
+    "existing_emi_monthly",
+    "estimated_new_emi",
+    "age",
+    "years_employed",
+    "dependents",
+    "loan_term_months",
+    "interest_rate",
+    "credit_score",
+    "credit_history_years",
+    "previous_loans",
+    "late_payments_24m",
+    "debt_to_income",
+    "loan_to_income",
+    "savings_to_income_months",
+    "co_applicant",
+    "collateral_provided",
+    "education",
+    "employment_status",
+    "home_ownership",
+    "property_area",
+    "loan_purpose"
+  ],
+  "categories": {
+    "education": [
+      "Graduate",
+      "Not Graduate",
+      "Postgraduate"
+    ],
+    "employment_status": [
+      "Business Owner",
+      "Retired",
+      "Salaried",
+      "Self-Employed"
+    ],
+    "home_ownership": [
+      "Family",
+      "Own",
+      "Rent"
+    ],
+    "property_area": [
+      "Rural",
+      "Semi-Urban",
+      "Urban"
+    ],
+    "loan_purpose": [
+      "Business",
+      "Education",
+      "Home",
+      "Personal",
+      "Vehicle"
+    ]
+  },
+  "training_range": {
+    "age": [
+      21.0,
+      70.0
+    ],
+    "years_employed": [
+      0.0,
+      35.1
+    ],
+    "annual_income": [
+      120000.0,
+      3919000.0
+    ],
+    "dependents": [
+      0.0,
+      4.0
+    ],
+    "loan_amount": [
+      50000.0,
+      22715000.0
+    ],
+    "loan_term_months": [
+      12.0,
+      240.0
+    ],
+    "interest_rate": [
+      7.0,
+      17.82
+    ],
+    "credit_score": [
+      453.0,
+      900.0
+    ],
+    "credit_history_years": [
+      0.6,
+      32.0
+    ],
+    "previous_loans": [
+      0.0,
+      8.0
+    ],
+    "late_payments_24m": [
+      0.0,
+      4.0
+    ],
+    "existing_emi_monthly": [
+      0.0,
+      80700.0
+    ],
+    "savings_balance": [
+      5000.0,
+      11610000.0
+    ],
+    "co_applicant": [
+      0.0,
+      1.0
+    ],
+    "collateral_provided": [
+      0.0,
+      1.0
+    ]
+  },
+  "reference_profile": {
+    "age": 37.0,
+    "education": "Graduate",
+    "employment_status": "Salaried",
+    "years_employed": 6.2,
+    "annual_income": 630000.0,
+    "dependents": 1.0,
+    "home_ownership": "Rent",
+    "property_area": "Urban",
+    "loan_purpose": "Home",
+    "loan_amount": 700000.0,
+    "loan_term_months": 60.0,
+    "interest_rate": 10.07,
+    "credit_score": 716.0,
+    "credit_history_years": 6.1,
+    "previous_loans": 2.0,
+    "late_payments_24m": 0.0,
+    "existing_emi_monthly": 1200.0,
+    "savings_balance": 221000.0,
+    "co_applicant": 0.0,
+    "collateral_provided": 1.0
+  },
+  "excluded_inputs": [
+    "applicant_id",
+    "gender"
+  ]
+}
