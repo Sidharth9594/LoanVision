@@ -58,216 +58,280 @@ HISTORY_COLUMNS = [
 
 
 
+
 # ============================================================
-# UI DESIGN
+# UI DESIGN - LOANVISION MINIMAL LIGHT THEME
 # ============================================================
 
 st.markdown("""
 <style>
 
-/* MAIN APPLICATION */
+/* ---------- GLOBAL ---------- */
+:root {
+    --lv-bg: #f5f7fb;
+    --lv-surface: #ffffff;
+    --lv-text: #172033;
+    --lv-muted: #64748b;
+    --lv-primary: #2563eb;
+    --lv-border: #e5eaf2;
+}
 
 .stApp {
-    background: linear-gradient(
-        135deg,
-        #08111f 0%,
-        #101c32 55%,
-        #0b1628 100%
-    );
-    color: #f1f5f9;
-    font-family: 'Inter', sans-serif;
+    background: var(--lv-bg);
+    color: var(--lv-text);
+    font-family: "Inter", "Segoe UI", sans-serif;
 }
-
-/* MAIN CONTENT */
 
 .block-container {
+    max-width: 1440px;
     padding-top: 2rem;
     padding-bottom: 3rem;
-    max-width: 1450px;
 }
 
-/* SIDEBAR */
+/* Keep default text readable */
+.stApp p, .stApp label, .stApp li,
+.stApp [data-testid="stMarkdownContainer"] {
+    color: var(--lv-text);
+}
 
+.stCaption, [data-testid="stCaptionContainer"] {
+    color: var(--lv-muted) !important;
+}
+
+/* ---------- SIDEBAR ---------- */
 [data-testid="stSidebar"] {
-    background: linear-gradient(
-        180deg,
-        #101d33,
-        #0b1425
-    );
-    border-right: 1px solid #263b5a;
+    background: #ffffff;
+    border-right: 1px solid var(--lv-border);
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 1.2rem;
 }
 
 [data-testid="stSidebar"] h1 {
-    color: #60a5fa;
-    font-size: 27px;
-    font-weight: 800;
-}
-
-[data-testid="stSidebar"] p {
-    color: #a8b8cc;
-}
-
-/* HEADINGS */
-
-h1 {
-    color: #f8fafc !important;
+    color: #172033 !important;
+    font-size: 1.55rem !important;
     font-weight: 800 !important;
+    letter-spacing: -0.6px;
 }
 
-h2 {
-    color: #93c5fd !important;
-    font-weight: 750 !important;
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] span {
+    color: #475569 !important;
 }
 
-h3 {
-    color: #dbeafe !important;
-    font-weight: 700 !important;
+[data-testid="stSidebar"] [data-testid="stRadio"] > label {
+    color: #64748b !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
-/* MAIN TITLE */
+[data-testid="stSidebar"] [role="radiogroup"] {
+    gap: 0.35rem;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    border-radius: 9px;
+    padding: 0.48rem 0.65rem;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background: #eff6ff;
+}
+
+/* ---------- HEADERS ---------- */
+h1, h2, h3, h4 {
+    color: #172033 !important;
+    letter-spacing: -0.025em;
+}
+
+h1 { font-weight: 800 !important; }
+h2 { font-weight: 750 !important; }
+h3 { font-weight: 700 !important; }
 
 .main-title {
-    font-size: 38px;
-    font-weight: 850;
-    letter-spacing: -1px;
-    color: #60a5fa;
-    margin-bottom: 5px;
+    color: #172033 !important;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1.1px;
+    margin: 0 0 0.15rem 0;
 }
 
 .subtitle {
-    font-size: 15px;
-    color: #94a3b8;
-    letter-spacing: 0.3px;
+    color: #64748b !important;
+    font-size: 0.98rem;
+    margin-bottom: 1.3rem;
 }
 
-/* SECTION TITLES */
-
-.section-title {
-    color: #60a5fa;
-    font-size: 22px;
-    font-weight: 750;
-    margin-top: 15px;
+/* ---------- METRIC CARDS ---------- */
+[data-testid="stMetric"] {
+    background: #ffffff;
+    border: 1px solid var(--lv-border);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
 }
 
-/* METRIC CARDS */
-
-div[data-testid="stMetric"] {
-    background: linear-gradient(
-        145deg,
-        #192b46,
-        #122139
-    );
-    border: 1px solid #29466b;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.18);
-    transition: all 0.25s ease;
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] p {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
 }
 
-div[data-testid="stMetric"]:hover {
-    border-color: #60a5fa;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37,99,235,0.16);
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] div {
+    color: #172033 !important;
+    font-size: 1.7rem !important;
+    font-weight: 800 !important;
 }
 
-div[data-testid="stMetricLabel"] {
-    color: #a9bdd7 !important;
-    font-size: 14px;
+/* ---------- INPUTS ---------- */
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] label,
+.stTextInput label, .stNumberInput label,
+.stSelectbox label, .stDateInput label,
+.stTextArea label, .stMultiSelect label {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
 }
 
-div[data-testid="stMetricValue"] {
-    color: #f8fafc !important;
-    font-weight: 800;
+.stTextInput input, .stNumberInput input,
+.stDateInput input, .stTextArea textarea {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border: 1px solid #dbe2ec !important;
+    border-radius: 9px !important;
+    min-height: 2.65rem;
 }
 
-/* BUTTONS */
-
-.stButton > button,
-.stDownloadButton > button {
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #3b82f6
-    );
-    color: white;
-    border: 1px solid #60a5fa;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: 700;
-    transition: all 0.25s ease;
+.stTextInput input:focus, .stNumberInput input:focus,
+.stDateInput input:focus, .stTextArea textarea:focus {
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12) !important;
 }
 
-.stButton > button:hover,
-.stDownloadButton > button:hover {
-    background: linear-gradient(
-        135deg,
-        #1d4ed8,
-        #2563eb
-    );
-    border-color: #93c5fd;
-    transform: translateY(-2px);
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: #94a3b8 !important;
 }
 
-/* INPUT FIELDS */
-
-.stTextInput input,
-.stNumberInput input,
-.stDateInput input {
-    background-color: #17263d !important;
-    color: #f8fafc !important;
-    border: 1px solid #36516f !important;
+/* Selectbox and multiselect */
+[data-baseweb="select"] > div {
+    background: #ffffff !important;
+    border-color: #dbe2ec !important;
     border-radius: 9px !important;
 }
 
-/* SELECT BOX */
-
-.stSelectbox > div > div {
-    background-color: #17263d;
-    border-radius: 9px;
+[data-baseweb="select"] span {
+    color: #172033 !important;
 }
 
-/* FORM CONTAINERS */
+[data-baseweb="popover"], [data-baseweb="menu"],
+[data-baseweb="list"] {
+    background: #ffffff !important;
+}
 
+[role="option"] {
+    color: #172033 !important;
+}
+
+[role="option"]:hover {
+    background: #eff6ff !important;
+}
+
+/* Number input controls */
+.stNumberInput button {
+    background: #f8fafc !important;
+    color: #334155 !important;
+    border-color: #dbe2ec !important;
+}
+
+/* ---------- BUTTONS ---------- */
+.stButton > button,
+.stFormSubmitButton > button,
+.stDownloadButton > button {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border: 1px solid #2563eb !important;
+    border-radius: 9px !important;
+    min-height: 2.55rem;
+    padding: 0.45rem 1rem;
+    font-weight: 650 !important;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover,
+.stDownloadButton > button:hover {
+    background: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button:focus,
+.stFormSubmitButton > button:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18) !important;
+}
+
+/* ---------- FORMS AND CONTENT SURFACES ---------- */
 [data-testid="stForm"] {
-    background: rgba(23, 38, 61, 0.45);
-    border: 1px solid #29466b;
-    border-radius: 16px;
-    padding: 22px;
+    background: #ffffff;
+    border: 1px solid var(--lv-border);
+    border-radius: 15px;
+    padding: 1.35rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
 }
 
-/* DATA TABLE */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    border-color: var(--lv-border) !important;
+    border-radius: 14px !important;
+}
 
-[data-testid="stDataFrame"] {
-    border: 1px solid #29466b;
+/* ---------- TABLES ---------- */
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+    background: #ffffff;
+    border: 1px solid var(--lv-border);
     border-radius: 12px;
     overflow: hidden;
 }
 
-/* CHART CONTAINERS */
-
+/* ---------- CHARTS ---------- */
 [data-testid="stPlotlyChart"] {
-    background: rgba(23, 38, 61, 0.45);
-    border: 1px solid #29466b;
-    border-radius: 15px;
-    padding: 10px;
+    background: #ffffff;
+    border: 1px solid var(--lv-border);
+    border-radius: 14px;
+    padding: 0.65rem;
 }
 
-/* ALERT MESSAGES */
-
+/* ---------- ALERTS / PROGRESS / DIVIDERS ---------- */
 [data-testid="stAlert"] {
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
-/* DIVIDERS */
+.stProgress > div > div {
+    background: #2563eb !important;
+}
 
 hr {
-    border-color: #29405f;
+    border-color: #e5eaf2 !important;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
+footer { visibility: hidden; }
 
-footer {
-    visibility: hidden;
+/* Responsive spacing */
+@media (max-width: 768px) {
+    .block-container {
+        padding: 1rem 1rem 2rem 1rem;
+    }
+    .main-title { font-size: 1.65rem; }
+    [data-testid="stMetric"] { padding: 0.85rem; }
 }
 
 </style>
@@ -508,14 +572,8 @@ with st.sidebar:
 # ============================================================
 
 st.markdown(
-    '<div class="main-title">🏦 LoanVision</div>',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    '<div class="subtitle">'
-    'Bank Loan Default Prediction and Risk Assessment System'
-    '</div>',
+    '<div class="main-title">LoanVision</div>'
+    '<div class="subtitle">Bank loan default prediction &amp; risk assessment</div>',
     unsafe_allow_html=True
 )
 
